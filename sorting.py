@@ -44,6 +44,16 @@ def bubble_sort(ciselny_seznam):
     return ciselny_seznam
 
 
+def insertion_sort(ciselka):
+    n = len(ciselka)
+    for i in range(1, n):
+        neco = 0
+        while neco < n and ciselka[i - 1] > ciselka[i]:
+            ciselka[i - 1], ciselka[i] = ciselka[i], ciselka[i - 1]
+            neco = neco + 1
+
+    return ciselka
+
 
 def main():
     my_data = read_data('numbers.csv')
@@ -52,6 +62,8 @@ def main():
     print(selection_sort_result)
     bubble_sort_result = bubble_sort(my_data['series_1'])
     print(bubble_sort_result)
+    insertion_sort_result = insertion_sort(my_data['series_1'])
+    print(insertion_sort_result)
 
 
 if __name__ == '__main__':
